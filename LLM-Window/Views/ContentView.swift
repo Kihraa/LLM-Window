@@ -28,16 +28,39 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteChats)
             }
-            //.navigationSplitViewColumnWidth(min: 180, ideal: 200)
-            .toolbar {
+            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
+            .toolbar(content: {
                 ToolbarItem {
                     Button(action: addChat) {
                         Label("Add Chat", systemImage: "plus")
                     }
                 }
-            }
+            })
         } detail: {
-            Text("Select a chat")
+            VSplitView {
+
+                ScrollView {
+
+                }
+
+                VStack {
+                    					Divider()
+                    HStack {
+                        TextField(
+                            "Enter message",
+                            text: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Value@*/.constant(
+                                "") /*@END_MENU_TOKEN@*/)
+							.cornerRadius(10)
+                        Button(action: {}) {
+                            Label("Send", systemImage: "paperplane")
+                        }
+//							.labelStyle(.iconOnly)
+							.buttonStyle(.borderedProminent)
+                    }
+                    .padding()
+                }
+            }
+
         }
     }
 

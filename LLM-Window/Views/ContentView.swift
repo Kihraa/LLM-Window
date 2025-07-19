@@ -2,6 +2,18 @@
 //  ContentView.swift
 //  LLM-Window
 //
+//  Purpose: Main user interface view providing the primary navigation and chat management interface.
+//  This view implements a NavigationSplitView layout with a sidebar for chat list management and
+//  a detail pane for conversation display. It handles chat creation, deletion, and selection,
+//  manages the SwiftData integration for persistent storage, and provides the foundation for
+//  the chat application's user experience. The sidebar displays all saved conversations while
+//  the detail pane shows the selected chat interface with message history and input controls.
+//
+//  Usage: Serves as the root view of the application, displayed immediately after app launch.
+//  Integrates with SwiftData for chat persistence, will be enhanced to work with ChatView
+//  for detailed conversation management, and provides the main navigation structure for
+//  the entire LLM chat application.
+//
 //  Created by Main on 05.07.2025.
 //
 
@@ -44,18 +56,17 @@ struct ContentView: View {
                 }
 
                 VStack {
-                    					Divider()
+                    Divider()
                     HStack {
                         TextField(
                             "Enter message",
-                            text: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Value@*/.constant(
-                                "") /*@END_MENU_TOKEN@*/)
-							.cornerRadius(10)
+                            text: .constant("")
+                        )
+                        .cornerRadius(10)
                         Button(action: {}) {
                             Label("Send", systemImage: "paperplane")
                         }
-//							.labelStyle(.iconOnly)
-							.buttonStyle(.borderedProminent)
+                        .buttonStyle(.borderedProminent)
                     }
                     .padding()
                 }
